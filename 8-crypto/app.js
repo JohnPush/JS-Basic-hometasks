@@ -3,22 +3,30 @@
 /*Шифратор*/
 
 function crypto (password) {
-    if (password === undefined || password === null ||password === '') {
+        if (!password) {
         console.log ('no password set');
     } else {
         password = password.toString();
         password = password.split('');
             if (password.length < 4) {
                 console.log ('the password must be at least 4 characters long');
-        } else {
+        // } else {
+        //     const spliceLastCrypto = password.splice(-1, 1);
+        //     password.unshift(spliceLastCrypto);
+        //     const spliceFirstCrypto = password.splice(1, 1)
+        //     password.push(spliceFirstCrypto);
+        //     password.unshift('a');
+        //     password.unshift(spliceLastCrypto);
+        //     password.push(spliceFirstCrypto);
+        //     password.push('s');
+        //     password = password.join('');
+        //     console.log(password);
+        // }
+         } else {
             const spliceLastCrypto = password.splice(-1, 1);
-            password.unshift(spliceLastCrypto);
+            password.unshift(spliceLastCrypto + 'a' + spliceLastCrypto);
             const spliceFirstCrypto = password.splice(1, 1)
-            password.push(spliceFirstCrypto);
-            password.unshift('a');
-            password.unshift(spliceLastCrypto);
-            password.push(spliceFirstCrypto);
-            password.push('s');
+            password.push(spliceFirstCrypto + spliceFirstCrypto + 's');
             password = password.join('');
             console.log(password);
         }
@@ -26,6 +34,7 @@ function crypto (password) {
 }
 
 crypto (1234);
+console.log('4a42311s');
 
 /*Дешифратор*/
 
