@@ -4,17 +4,20 @@
 
 const toDoList = {
     tasks: [],
-    addTask: function (title, id, priority) {
+	deletedId: [],
+    addTask: function (title, priority) {
         this.tasks.push({
-            title: title,
-            id: id,
-            priority: priority,
-        })
+            title,
+			id: this.deletedId[0] || this.tasks.length + 1,
+            priority,
+        });
+		this.deletedId.splice(0, 1)
     },
     removeTask: function (id) {
         const taskToRemove = this.tasks.findIndex(task => task.id === id);
         if (taskToRemove !== -1) {
             this.tasks.splice(taskToRemove, 1);
+			this.deletedId.push(id);
         } else {
             console.log('id не найден')
         }
@@ -33,13 +36,17 @@ const toDoList = {
     }
 };
 
-toDoList.addTask('Task #1', 1, 5);
-toDoList.addTask('Task #2', 2, 4);
-toDoList.addTask('Task #3', 3, 3);
-toDoList.addTask('Task #4', 4, 2);
-toDoList.addTask('Task #5', 5, 1);
+toDoList.addTask('Task #1', 5);
+toDoList.addTask('Task #2', 4);
+toDoList.addTask('Task #3', 3);
+toDoList.addTask('Task #4', 2);
+toDoList.addTask('Task #5', 1);
 
 toDoList.removeTask(3);
+
+toDoList.addTask('Task #6', 1);
+toDoList.addTask('Task #7', 1);
+console.log(toDoList.deletedId);
 
 toDoList.updateTask('Task #555', 5, 100);
 
