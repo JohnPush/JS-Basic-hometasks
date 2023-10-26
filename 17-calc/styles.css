@@ -1,0 +1,75 @@
+body {
+  background-color: black;
+  font-size: 20px;
+  color: white;
+}
+
+.grid-container {
+  max-width: 400px;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(6, 1 fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "firstNumber firstNumber firstNumber firstNumber result result"
+    "secondNumber secondNumber secondNumber secondNumber result result"
+    "multiplication multiplication division addition subtraction subtraction";
+}
+
+.label-firstNumber {
+  grid-area: firstNumber;
+}
+
+.result {
+  grid-area: result;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid red;
+  color: black;
+  text-align: center;
+  align-self: center;
+  padding: 5px;
+  font-size: 40px;
+}
+
+.label-secondNumber {
+  grid-area: secondNumber;
+}
+
+.multiplication {
+  grid-area: multiplication;
+}
+
+.division {
+  grid-area: division;
+}
+
+.addition {
+  grid-area: addition;
+}
+
+.subtraction {
+  grid-area: subtraction;
+}
+
+label {
+  border-radius: 10px;
+}
+
+input {
+  border: 2px solid red;
+  border-radius: 10px;
+  max-width: 110px;
+  font-size: 20px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+button {
+  border: none;
+  background-color: red;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
